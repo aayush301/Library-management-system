@@ -1,0 +1,34 @@
+<main>
+	<%- include('../partials/adminSidebar') %>
+	
+	<div id="main-wrapper">
+		
+		<div class="bg-white p-3">
+			<h5 class="m-0 fw-bold color-theme">Students</h5>
+		</div>
+		
+		<div class="col col-sm-10 col-12 m-auto my-4" style="max-height: 75%; overflow: auto;">
+			<table class="table table-info table-striped table-hover m-0 bg-white">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Name</th>
+						<th scope="col">Email</th>
+						<th scope="col">Joined time</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(let i=0; i<students.length; i++) { %>
+						<tr>
+							<th scope="row"> <%= i+1 %> </th>
+							<td> <%= students[i].firstName + " " + students[i].lastName %> </td>
+							<td> <%= students[i].email %> </td>
+							<td> <%= students[i].joinedTime.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short"}) %> </td>
+						</tr>
+					<% } %>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+</main>

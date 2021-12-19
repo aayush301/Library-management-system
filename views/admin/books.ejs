@@ -1,0 +1,157 @@
+<main>
+	<%- include('../partials/adminSidebar') %>
+	
+	<div id="main-wrapper">
+		
+		<div class="bg-white mb-5 p-3 d-sm-flex align-items-center justify-content-between">
+			<h5 class="m-0 fw-bold color-theme">Books</h5>
+			<div class="btn-group">
+				<a href="/admin/books/add" class="btn">Add new Book</a>
+				<button class="btn" data-bs-toggle="modal" data-bs-target="#filter-modal">Filter</button>
+				<button class="btn" data-bs-toggle="modal" data-bs-target="#sort-modal">Sort</button>
+			</div>
+		</div>
+		
+		
+		<div class="d-flex flex-wrap justify-content-center">
+			
+			<% if(books.length == 0) { %>
+				<div>No books were found.</div>
+			<% } else for(let i=0; i<books.length; i++) { %>
+				<div class="card border border-2 m-2" style="width: 18rem;">
+					<div class="card-body">
+						
+						<h5 class="card-title"> <%= books[i].title %> </h5>
+						<h6 class="card-subtitle mb-3 text-muted"> <%= books[i].authors %> </h6>
+						<div> <%= books[i].category %> </div>
+						<div> ISBN: <%= books[i].ISBN %> </div>
+						<div> Copies owned: <%= books[i].copiesOwned %> </div>
+						<div> In stock: <%= books[i].stock %> </div>
+						<div> <%= books[i].description %> </div>
+						
+						<div class="btn-group mt-3">
+							<a href="/admin/book/<%= books[i].id %>" class="btn">Edit</a>
+							<form class="d-none" id="hidden-form-<%= books[i].id %>" action="/admin/book/<%= books[i].id %>?_method=DELETE" method="POST"><input type="submit"></form>
+							<button onclick="confirmDelete('<%= books[i].id %>')" class="btn">Delete</button>
+						</div>
+						
+					</div>
+				</div>
+			<% } %>
+			
+		</div>
+		
+		
+		
+		<!-- Filter Modal -->
+		<div class="modal fade" id="filter-modal" tabindex="-1">
+			<div class="modal-dialog">
+				
+				<form class="modal-content" action="/admin/books" method="GET">
+					<div class="modal-header bg-primary text-white">
+						<h5 class="modal-title">Filters</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					
+					<div class="modal-body p-4">
+						<div class="row mb-4">
+							<label for="filter-title" class="form-label col-2">Title</label>
+							<div class="col-10"><input type="text" name="filter[title]" class="form-control" id="filter-title"></div>
+						</div>
+						
+						<div class="row mb-4">
+							<label for="filter-author" class="form-label col-2">Author</label>
+							<div class="col-10"><input type="text" name="filter[authors]" class="form-control" id="filter-author"></div>
+						</div>
+						
+						<div class="row mb-4">
+							<label for="filter-category" class="form-label col-2">Category</label>
+							<div class="col-10"><input type="text" name="filter[category]" class="form-control" id="filter-category"></div>
+						</div>
+						
+						<div class="row mb-4">
+							<label for="filter-copies-owned-min" class="form-label col-2">Copies owned</label>
+							<div class="col-5"><input type="number" name="filter[minCopiesOwned]" class="form-control" id="filter-copies-owned-min" placeholder="Min copies.."></div>
+							<div class="col-5"><input type="number" name="filter[maxCopiesOwned]" class="form-control" id="filter-copies-owned-max" placeholder="Max copies.."></div>
+						</div>
+						
+						<div class="row mb-4">
+							<label for="filter-stock-min" class="form-label col-2">Stock</label>
+							<div class="col-5"><input type="number" name="filter[minStock]" class="form-control" id="filter-stock-min" placeholder="Min stock.."></div>
+							<div class="col-5"><input type="number" name="filter[maxStock]" class="form-control" id="filter-stock-max" placeholder="Max stock.."></div>
+						</div>
+						
+					</div>
+					
+					<div class="modal-footer">
+						<button type="submit" class="btn">Apply</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+		
+		
+		
+		<!-- Sort Modal -->
+		<div class="modal fade" id="sort-modal" tabindex="-1">
+			<div class="modal-dialog">
+				
+				<form class="modal-content" action="/admin/books" method="GET">
+					<div class="modal-header bg-primary text-white">
+						<h5 class="modal-title">Sort by</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					
+					<div class="modal-body">
+						<div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="sortBy" id="title-asc" value="title">
+								<label class="form-check-label" for="title-asc">Title (Ascending)</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="sortBy" id="title-desc" value="-title">
+								<label class="form-check-label" for="title-desc">Title (Descending)</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="sortBy" id="copies-owned-asc" value="copiesOwned">
+								<label class="form-check-label" for="copies-owned-asc">Copies owned (Ascending)</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="sortBy" id="copies-owned-desc" value="-copiesOwned">
+								<label class="form-check-label" for="copies-owned-desc">Copies owned (Descending)</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="sortBy" id="stock-asc" value="stock">
+								<label class="form-check-label" for="stock-asc">Stock (Ascending)</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="sortBy" id="stock-desc" value="-stock">
+								<label class="form-check-label" for="stock-desc">Stock (Descending)</label>
+							</div>
+						</div>
+					</div>
+					
+					<div class="modal-footer">
+						<button type="submit" class="btn">Apply</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+
+	</div>
+	
+	
+</main>
+
+<script>
+	function confirmDelete(id)
+	{
+		if(window.confirm("Are you sure you want to delete this book?\nAll the records related to this book will get deleted..."))
+		{
+			document.querySelector(`#hidden-form-${id}`).submit();
+		}
+	}
+</script>

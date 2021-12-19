@@ -1,0 +1,23 @@
+<div class="bg-image-container pt-5">
+	<div class="form-container bg-white m-auto p-5">
+		<form action="/auth/admin-login" method="POST">
+			<h3 class="text-center mb-3">Admin Login</h3>
+			<div class="mb-3">
+				<label for="email" class="form-label">Email address</label>
+				<input type="email" name="email" class="form-control" id="email" placeholder="Enter email.." required>
+			</div>
+	
+			<div class="mb-3">
+				<label for="password" class="form-label">Password</label>
+				<input type="password" name="password" class="form-control" id="password" placeholder="Enter password.." required>
+			</div>
+			<button type="submit" class="btn d-block m-auto mt-4">Submit</button>
+			
+			<div class="mt-3">
+				<span>Are you a student?</span>
+				<a href="/auth/student-login">Please login here</a>
+			</div>
+			
+		</form>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<div id="sidebar">
+	<ul id="sidebar-nav">
+		<li>Welcome <%= currentUser.firstName ? currentUser.firstName : "Student" %></li>
+		<li><a href="/student/dashboard">Dashboard</a></li>
+		<li><a href="/student/activities">Activities</a></li>
+		<li><a href="/student/books">Books</a></li>
+		<li><a href="/student/loans/current">My current books</a></li>
+		<li><a href="/student/loans/previous">My previous books</a></li>
+		<li><a href="/student/rules">Rules & Regulations</a></li>
+		<li><a href="/student/profile">My Profile</a></li>
+		<li><a href="/auth/student-logout" class="btn">Logout</a></li>
+	</ul>
+</div>
+
+<div id="toggler" class="text-center">
+	<span id="sidebar-toggler-btn"><i class="fas fa-bars"></i></span>
+</div>

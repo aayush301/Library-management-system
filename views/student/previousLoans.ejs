@@ -1,0 +1,38 @@
+<main>
+	<%- include('../partials/studentSidebar') %>
+	
+	<div id="main-wrapper">
+		
+		<div class="bg-white p-3">
+			<h5 class="m-0 fw-bold color-theme">Books returned</h5>
+		</div>
+		
+		<div class="col col-sm-10 col-12 m-auto my-4" style="max-height: 75%; overflow: auto;">
+			<table class="table table-info table-striped table-hover m-0 bg-white">
+				<thead>
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Book title</th>
+						<th scope="col">Book author(s)</th>
+						<th scope="col">Issued time</th>
+						<th scope="col">Returned Time</th>
+						<th scope="col">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(let i=0; i<previousLoans.length; i++) { %>
+						<tr>
+							<th scope="row"> <%= i+1 %> </th>
+							<td> <%= previousLoans[i].book.title %> </td>
+							<td> <%= previousLoans[i].book.authors %> </td>
+							<td> <%= previousLoans[i].issueTime.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short"}) %> </td>
+							<td> <%= previousLoans[i].returnTime.toLocaleString("en-IN", { dateStyle: "medium", timeStyle: "short"}) %> </td>
+							<td class="fw-bold text-returned"> <%= previousLoans[i].status %> </td>
+						</tr>
+					<% } %>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+</main>

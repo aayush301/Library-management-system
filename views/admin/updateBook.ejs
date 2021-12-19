@@ -1,0 +1,39 @@
+<main>
+	<%- include('../partials/adminSidebar') %>
+	
+	<div id="main-wrapper">
+		<form action="/admin/book/<%= book.id %>?_method=PUT" method="POST" class="w-75 border m-auto my-5 bg-white rounded-2">
+			<h5 class="text-center bg-primary text-white form-title">Update Book</h5>
+			
+			<div class="form-body p-4">
+				<div class="mb-3">
+					<label for="title" class="form-label">Book Title</label>
+					<input type="text" name="book[title]" class="form-control" id="title" placeholder="Enter book title.." value="<%= book.title %>" required>
+				</div>
+				<div class="mb-3">
+					<label for="ISBN" class="form-label">ISBN</label>
+					<input type="number" name="book[ISBN]" class="form-control" id="ISBN" placeholder="Enter book ISBN.." value="<%= book.ISBN %>" required>
+				</div>
+				<div class="mb-3">
+					<label for="description" class="form-label">Description</label>
+					<textarea name="book[description]" class="form-control" id="description" rows="5" placeholder="Enter book description.."><%= book.description %></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="authors" class="form-label">Book Authors</label>
+					<input type="text" name="book[authors]" class="form-control" id="authors" placeholder="Enter author(s).." value="<%= book.authors %>">
+				</div>
+				<div class="mb-3">
+					<label for="category" class="form-label">Book Category</label>
+					<input type="text" name="book[category]" class="form-control" id="category" placeholder="Enter category.." value="<%= book.category %>">
+				</div>
+				<div class="mb-3">
+					<label for="copies" class="form-label">No. of Copies</label>
+					<input type="number" min="0" name="book[copiesOwned]" class="form-control" id="copies" placeholder="Enter no. of copies.." value="<%= book.copiesOwned %>" required>
+				</div>
+				<button type="submit" class="btn w-75 d-block m-auto mt-4">Update</button>
+				<a href="/admin/books" class="btn btn-cancel w-75 d-block m-auto mt-4">Cancel</a>
+			</div>
+		</form>
+	</div>
+
+</main>
