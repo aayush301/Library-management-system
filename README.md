@@ -1,13 +1,17 @@
 # Library Management System
 
-A web application which can be used as library management system.
+A web application which can manage various tasks in library for both admins and students.  
+[View Demo](https://library-aayush.herokuapp.com/)
 
 ## Table of Contents
 * [Features](#features)
 * [Technologies used](#technologies-used)
 * [npm packages used](#npm-packages-used)
 * [Prerequisites](#prerequisites)
-* [Steps to run the application](#steps-to-run-the-application)
+* [Installation and setup](#installation-and-setup)
+* [Useful Links](#useful-links)
+* [Contact](#contact)
+
 
 ## Features
 - The system consists of two types of users: admins and students.
@@ -64,22 +68,42 @@ For running the application:
 - You should have a MongoDB database.
 - You should have a code editor (preferred: VS Code)
 
-## Steps to run the application
+## Installation and Setup
 1. Download the source code in the desired location on your system.
-
 2. Open the code in your code editor.
-
 3. To install all the dependencies (listed in package.json file) in your project, go to terminal and type the following command and hit enter:
-	> npm install
-
+	```sh
+	npm install
+	```
 4. Create a file named ".env" and enter the following credentials:
-	> MONGO_URI=your-mongo-uri
-
+	```js
+	MONGO_URI=your-mongo-uri
+	```
 5. Go to terminal and type the following command and hit enter:
-	> npm start
-
+	```sh
+	npm start
+	```
 6. Open browser and go to url: http://localhost:5000
-
 7. You need to first signup and then login as admin or student to run the application.
-
 8. Admin signup page can't be accessed from the application. However, I have created a hidden route to access the page: `/auth/admin-signup`
+
+## Useful Links
+- Demo: https://library-aayush.herokuapp.com/
+- Github Repo: https://github.com/aayush301/Library-management-system
+- Nodejs download: https://nodejs.org/
+- VS Code download: https://code.visualstudio.com/
+- Tutorials: https://www.w3schools.com/
+- npmjs docs: https://docs.npmjs.com/
+- Expressjs docs: https://expressjs.com/
+- Bootstrap docs: https://getbootstrap.com/docs/5.1/getting-started/introduction/
+- Mongoosejs docs: https://mongoosejs.com/docs/index.html
+- Mongodb atlas: https://www.mongodb.com/cloud/atlas/register
+- Mongodb docs: https://docs.mongodb.com/manual/introduction/
+- Nodemailer docs: https://nodemailer.com/
+- Github docs: https://docs.github.com/en/get-started/quickstart/hello-world
+- Git cheatsheet: https://education.github.com/git-cheat-sheet-education.pdf
+- VS Code keyboard shortcuts: https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf
+
+## Contact
+- Email: aayush5521186@gmail.com
+- Linkedin: https://www.linkedin.com/in/aayush12/
