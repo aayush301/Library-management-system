@@ -19,7 +19,7 @@ A web application which can manage various tasks in library for both admins and 
 - The application provides signup, login and logout functionalities.
 - A book can have multiple copies so that copies of same book can be issued to multiple students.
 
-### Admin
+### Admin Features
 - Admins can view, add, update or delete the books.
 - Admins can view all the students who have an account in the system.
 - Admins can keep track of all the activities of library.
@@ -30,7 +30,7 @@ A web application which can manage various tasks in library for both admins and 
 - Admins can send the email as reminders to the students.
 - Admins can update their profile.
 
-### Student
+### Student Features
 - Students can view all the books in the library.
 - students can keep track of all their activities.
 - Students can view all the books which they currently possess along with status (overdue or not).
