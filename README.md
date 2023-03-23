@@ -1,7 +1,8 @@
 # Library Management System
+A web application which can manage various tasks in library for both admins and students.
 
-A web application which can manage various tasks in library for both admins and students.  
-[View Demo](https://library-aayush.herokuapp.com/)
+![image](https://user-images.githubusercontent.com/86913048/227118328-7af0ff95-9f70-4aa6-8cf6-eb7d2998f088.png)
+
 
 ## Table of Contents
 * [Features](#features)
@@ -69,26 +70,23 @@ For running the application:
 - You should have a code editor (preferred: VS Code)
 
 ## Installation and Setup
-1. Download the source code in the desired location on your system.
-2. Open the code in your code editor.
-3. To install all the dependencies (listed in package.json file) in your project, go to terminal and type the following command and hit enter:
+1. Install all the dependencies
 	```sh
 	npm install
 	```
-4. Create a file named ".env" and enter the following credentials:
+2. Create a file named ".env" and enter the following credentials:
 	```js
 	MONGO_URI=your-mongo-uri
 	```
-5. Go to terminal and type the following command and hit enter:
+3. Run the application
 	```sh
 	npm start
 	```
-6. Open browser and go to url: http://localhost:5000
-7. You need to first signup and then login as admin or student to run the application.
-8. Admin signup page can't be accessed from the application. However, I have created a hidden route to access the page: `/auth/admin-signup`
+4. Open http://localhost:5000
+5. You need to first signup and then login as admin or student to run the application.
+6. Admin signup page can't be accessed from the application. However, I have created a hidden route to access the page: `/auth/admin-signup`
 
 ## Useful Links
-- Demo: https://library-aayush.herokuapp.com/
 - Github Repo: https://github.com/aayush301/Library-management-system
 - Nodejs download: https://nodejs.org/
 - VS Code download: https://code.visualstudio.com/
